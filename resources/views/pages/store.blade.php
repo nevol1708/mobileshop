@@ -79,7 +79,7 @@ $(document).ready(function() {
                     <ul>
                         @foreach($products as $new)
                         <li id="{{$new->id}}">
-                            <img src="source/images/product/{{$new->image}}" class="items" alt="" style="height: 293px; width: 200px"/>
+                            <img src="source/images/product/{{$new->image}}" class="items" alt=""/>
                             <br clear="all" />
                             <div><a href="{{route('detail', $new->id)}}">{{$new->name}}</a></div>
                         </li>
