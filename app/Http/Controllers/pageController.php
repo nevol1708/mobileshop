@@ -133,7 +133,7 @@ class PageController extends Controller
         $user->name = $req->fullname;
         $user->email = $req->email;
         $user->password = Hash::make($req->password);
-        $user->admin_user = $req->admin_user;
+        $user->admin_user = 0;
         $user->remember_token = $req->remember_token;
         $user->save();
         return redirect()->back()->with('thanhcong','Tạo tài khoản thành công');

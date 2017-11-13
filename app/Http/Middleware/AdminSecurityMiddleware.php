@@ -24,7 +24,7 @@ class AdminSecurityMiddleware
             if($user->admin_user == 1)
                 return $next($request);
             else
-                return redirect('admin/dangnhap')->with('thongbao','Tài khoản của bạn không phải là Admin, Bạn không thể đăng nhập vào trang quản trị!');
+                return redirect('/')->with('thongbao','Tài khoản của bạn không phải là Admin, Bạn không thể đăng nhập vào trang quản trị!');
         }
         else 
             return redirect('admin/dangnhap');

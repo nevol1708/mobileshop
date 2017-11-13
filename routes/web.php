@@ -162,12 +162,6 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 		Route::get('them','sanphamController@getThem');
 		//Hàm post nhận dữ liệu rồi lưu vào cơ sở dữ liệu database
 		Route::post('them','sanphamController@postThem');
-        /*Route::post('them', function()
-        {
-            $name = Input::file('fImages')->getClientOriginalName();
-            Input::file('fImages')->move('/source/images/product/', $name);
-            return 'File was moved.';
-        });*/
 	});
 
 

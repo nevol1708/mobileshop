@@ -2,9 +2,6 @@
 @section('content')
 	<div class="inner-header">
 		<div class="container">
-			<div class="pull-left">
-				<h6 class="inner-title">Đăng kí</h6>
-			</div>
 			<div class="pull-right">
 				<div class="beta-breadcrumb">
 					<a href="{{route('index')}}">Trang chủ</a> / <span>Đăng kí</span>
@@ -32,44 +29,60 @@
 						<div class="alert alert-success">{{Session::get('thanhcong')}}</div>
 					@endif
 					<div class="col-sm-6">
-						<h4>Đăng kí</h4>
+						<fieldset style="border:1px solid black; border-radius: 5px; margin-left: 30%; margin-right: 30%; padding-left: 20px; padding-bottom: 10px; box-shadow: 10px 10px 5px #888888;">
+							<legend style="font-size: 150%">Đăng ký</legend>
 						<div class="space20">&nbsp;</div>
 
-						
-						<div class="form-block">
-							<label for="email">Email address*</label>
+						<div class="col1">
+							<p>Email address :</p>
+							<p>Fullname :</p>
+							<p>Password :</p>
+							<p>Retype Password :</p>
+						</div>
+						<div class="col2">
 							<input type="email" name="email" required>
-						</div>
-
-						<div class="form-block">
-							<label for="your_last_name">Fullname*</label>
-							<input type="text" name="fullname" required>
-						</div>
-					
-						<div class="form-block">
-	                        <label>Quyền người dùng</label>
-	                        <label class="radio-inline">
-	                            <input name="admin_user" value="0" type="radio">USER
-	                        </label>
-                    	</div>
-
-						<div class="form-block">
-							<label for="phone">Password*</label>
-							<input type="password" name="password" required>
-						</div>
-
-						<div class="form-block">
-	                        <label>Nhập lại mật khẩu</label>
+							<br/>
+							<input type="text" name="fullname" required><br/>
+	                        <input type="password" name="password" required><br/>
 	                        <input type="password" class="form-control" name="re_password" placeholder="Nhập lại mật khẩu" />
-                    	</div>
-
-						<div class="form-block">
-							<button type="submit" class="btn btn-primary">Đăng ký</button>
 						</div>
+						<div class="form-block">
+							<button type="submit" class="btn btn-primary" id="btndangky">Đăng ký</button>
+						</div>
+						</fieldset>
 					</div>
 					<div class="col-sm-3"></div>
 				</div>
 			</form>
 		</div> <!-- #content -->
 	</div> <!-- .container -->
+	<style type="text/css">
+		.col1{
+			height: 90%;
+			width: 21%;
+			float: left;
+		}
+		.col2{
+			height: 90%;
+			width: 79%;
+			float: right;
+		}
+		.col2 input{
+			margin-top: 5px;
+			border-radius: 5px;
+		}
+		.col1 p{
+			margin-top: 7px;
+		}
+		#btndangky{
+			border-radius: 5px;
+			margin-top: 10px;
+			height: 30px;
+			width: 90px;
+		}
+		#btndangky:hover{
+			background-color: #004466;
+			color: #ff9900;
+		}
+	</style>
 @endsection
