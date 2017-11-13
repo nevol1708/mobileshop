@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Loại Sản Phẩm
+                <h1 class="page-header">Hãng Sản Xuất
                     <small>Thêm</small>
                 </h1>
             </div>
@@ -33,22 +33,6 @@
                         <label>Tên loại sản phẩm</label>
                         <input class="form-control" name="name" placeholder="Nhập tên loại sản phẩm" />
                     </div>
-                    <!-- <div class="form-group">
-                        <label>description</label>
-                        <textarea class="form-control" rows="5"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>image</label>
-                        <input type="file" name="image">
-                    </div>
-                    <div class="form-group">
-                        <label>created_at</label>
-                        <textarea class="form-control" rows="1" name="created_at"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>updated_at</label>
-                        <textarea class="form-control" rows="1" name="updated_at"></textarea>
-                    </div> -->
 
                     <button type="submit" class="btn btn-default">THÊM</button>
                     <button type="reset" class="btn btn-default">RESET</button>

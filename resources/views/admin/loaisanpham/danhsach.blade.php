@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Loại Sản Phẩm
+                <h1 class="page-header">Hãng Sản Xuất
                     <small>Danh Sách</small>
                 </h1>
             </div>
@@ -21,7 +21,7 @@
                 <thead>
                     <tr align="center">
                         <th>ID</th>
-                        <th>Tên loại sản phẩm</th>
+                        <th>Hãng sản xuất</th>
                         <th>Xóa</th>
                         <th>Sửa</th>
                     </tr>

@@ -22,12 +22,13 @@
                     <tr align="center">
                         <th>ID</th>
                         <th>Tên sản phẩm</th>
+                        <th>Hãng sản xuất</th>
                         <th>Mô tả</th>
                         <th>Giá tiền</th>
                         <th>Hình ảnh</th>
                         <th>Số lượng</th>
-                        <th>Xóa</th>
                         <th>Sửa</th>
+                        <th>Xóa</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,12 +36,13 @@
                         <tr class="odd gradeX" align="center">
                             <td>{{$sp->id}}</td>
                             <td>{{$sp->name}}</td>
+                            <td>{{$sp->product_type->name}}</td>
                             <td>{{$sp->description}}</td>
                             <td>{{number_format($sp->unit_price)}}</td>
                             <td><img src="source/images/product/{{$sp->image}}" alt=""></td>
                             <td>{{$sp->unit}}</td>
-                            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/sanpham/xoa/{{$sp->id}}"> Xóa</a></td>
-                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/sanpham/sua/{{$sp->id}}">Sửa</a></td>
+                            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/sanpham/sua/{{$sp->id}}"> Xóa</a></td>
+                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/sanpham/xoa/{{$sp->id}}">Sửa</a></td>
                         </tr>
                     @endforeach
                 </tbody>

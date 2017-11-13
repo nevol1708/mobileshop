@@ -12,7 +12,7 @@ class khachhangController extends Controller
     public function getDanhSach()
     {
     	$khachhang = Customer::all();
-    	return view('admin.khachhang.danhsach',['khachhang'=>$khachhang]);
+    	return view('admin.khachhang.danhsach', compact('khachhang'));
     }
 
 

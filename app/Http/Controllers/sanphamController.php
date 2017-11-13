@@ -10,18 +10,17 @@ use Illuminate\Support\Facades\Input;
 
 class sanphamController extends Controller
 {
-    //
     public function getDanhSach()
     {
-    	$sanpham = Product::all();
-    	return view('admin.sanpham.danhsach',['sanpham'=>$sanpham]);
+        $sanpham = Product::with('product_type')->get();
+    	return view('admin.sanpham.danhsach', compact('sanpham'));
     }
 
 
     public function getThem()
     {
         $loaisanpham = ProductCategory::all();
-    	return view('admin.sanpham.them',['loaisanpham'=>$loaisanpham]);
+    	return view('admin.sanpham.them', compact('loaisanpham'));
     }
 
     public function postThem(Request $request)
@@ -69,7 +68,7 @@ class sanphamController extends Controller
     {
         $loaisanpham = ProductCategory::all();
     	$sanpham = Product::find($id);
-    	return view('admin.sanpham.sua',['sanpham'=>$sanpham,'loaisanpham'=>$loaisanpham]);
+    	return view('admin.sanpham.sua', compact('sanpham', 'loaisanpham'));
     }
 
     public function postSua(Request $request,$id)

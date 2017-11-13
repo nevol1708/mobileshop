@@ -20,8 +20,8 @@
             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                 <thead>
                     <tr align="center">
-                        <th>ID</th>
-                        <th>ID khách hàng</th>
+                        <th>ID hóa đơn</th>
+                        <th>Tên khách hàng</th>
                         <th>Ngày đặt hàng</th>
                         <th>Tổng tiền</th>
                         <th>Hình thức thanh toán</th>
@@ -34,7 +34,7 @@
                     @foreach($hoadon as $hd)
                         <tr class="odd gradeX" align="center">
                             <td>{{$hd->id}}</td>
-                            <td>{{$hd->id_customer}}</td>
+                            <td>{{$hd->customer->name}}</td>
                             <td>{{$hd->created_at}}</td>
                             <td>{{$hd->total}}</td>
                             <td>{{$hd->payment}}</td>
@@ -51,5 +51,4 @@
     <!-- /.container-fluid -->
 </div>
 <!-- /#page-wrapper -->
-
 @endsection

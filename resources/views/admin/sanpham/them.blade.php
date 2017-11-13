@@ -11,7 +11,7 @@
                 </h1>
             </div>
             <!-- /.col-lg-12 -->
-            <div class="col-lg-7" style="padding-bottom:120px">
+            <div class="col-lg-12">
             
                 @if(count($errors) > 0)
                     <div class="alert alert-danger">
@@ -34,12 +34,11 @@
                         <input class="form-control" name="name" placeholder="Nhập tên sản phẩm" />
                     </div>
                     
-                    <!-- Chọn loại sản phẩm (mũi tên chỉ xuống chọn) -->
                     <div class="form-group">
-                        <label>ID loại sản phẩm</label>
+                        <label>Tên hãng sản xuất</label>
                         <select class="form-control" name="id_type"> 
                             @foreach($loaisanpham as $lsp)
-                                <option value="{{$lsp->id}}">{{$lsp->id}}</option>
+                                <option value="{{$lsp->id}}">{{$lsp->name}}</option>
                             @endforeach
                         </select>  
                     </div>
@@ -61,7 +60,7 @@
                         <textarea class="form-control" rows="1" name="unit"></textarea>
                     </div>
                 
-                    <button type="submit" class="btn btn-default">THÊM</button>
+                    <button type="submit" class="btn btn-success">THÊM</button>
                     <button type="reset" class="btn btn-default">RESET</button>
                 </form>
             </div>

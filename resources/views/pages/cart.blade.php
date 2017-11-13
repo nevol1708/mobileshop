@@ -38,38 +38,33 @@
 		<div class="col-lg-6">
 			<div class="content">
 				<div class="content2">
-					<div class="form-block">
-						<label for="name">Họ tên*</label>
-						<input type="text" name="name" placeholder="Họ tên" required>
-					</div>
-					<div class="form-block">
-						<label>Giới tính </label>
-						<input id="gender" type="radio" class="input-radio" name="gender" value="nam" checked="checked" style="width: 10%"><span style="margin-right: 10%">Nam</span>
-						<input id="gender" type="radio" class="input-radio" name="gender" value="nữ" style="width: 10%"><span>Nữ</span>
-									
-					</div>
-
-					<div class="form-block">
-						<label for="email">Email*</label>
-						<input type="email" id="email" name="email" required placeholder="expample@gmail.com">
-					</div>
-
-					<div class="form-block">
-						<label for="adress">Địa chỉ*</label>
-						<input type="text" id="address" name="address" placeholder="Street Address" required>
-					</div>
 					
-
-					<div class="form-block">
-						<label for="phone">Điện thoại*</label>
-						<input type="text" id="phone" name="phone" required>
-					</div>
-					
-					<div class="form-block">
-						<label for="notes">Ghi chú</label>
-						<textarea id="notes" name="notes"></textarea>
-					</div>
-					<ul class="payment_methods methods">
+						<div style="float: left; width: 50%; height: 100%">
+							<div class="space"></div>
+							<div class="form-block">
+								<label for="name">Họ tên: </label>
+								<input type="text" name="name" placeholder="Họ tên" required>
+							</div>
+							<div class="space"></div>
+							<div class="form-block">
+								<label>Giới tính :</label>
+								<input id="gender" type="radio" class="input-radio" name="gender" value="nam" checked="checked" style="width: 5%"><span style="margin-right: 10px">Nam</span>
+								<input id="gender" type="radio" class="input-radio" name="gender" value="nữ" style="width: 5%"><span>Nữ</span>
+											
+							</div>
+							<div class="space"></div>
+							<div class="form-block">
+								<label for="email">Email :</label>
+								<input type="email" id="email" name="email" required placeholder="expample@gmail.com">
+							</div>
+							
+							<div class="space"></div>
+							<div class="form-block">
+								<label for="phone">Điện thoại :</label>
+								<input type="text" id="phone" name="phone" required>
+							</div>
+							<div class="space"></div>
+							<ul class="payment_methods methods" style="margin-left: 5px;">
 						<li class="payment_method_bacs">
 							<input id="payment_method_bacs" type="radio" class="input-radio" name="payment_method" value="COD" checked="checked" data-order_button_text="">
 							<label for="payment_method_bacs">Thanh toán khi nhận hàng </label>						
@@ -80,8 +75,24 @@
 							<label for="payment_method_cheque">Chuyển khoản </label>					
 						</li>	
 					</ul>
-					<p>Total: @if(Session::has('cart')){{number_format($totalPrice)}} @else 0 @endif đ</p>
-					<input type="submit" value="Place Order">
+					<p style="margin-left: 5px; margin-top: 10px; font-size: 150%; color: #ff6600;">Total: @if(Session::has('cart')){{number_format($totalPrice)}} @else 0 @endif đ</p>
+						</div>
+						<div class="colleft">
+							<div class="space"></div>
+							<div class="form-block">
+								<label for="adress">Địa chỉ :</label>
+								<textarea id="address" name="address" class="text" placeholder="Street Address" required>	
+								</textarea>
+							</div>
+							<div class="form-block">
+								<label for="notes">Ghi chú :</label>
+								<textarea id="notes" name="notes" class="text"></textarea>
+							</div>
+						</div>
+					
+					<div style="width: 100%; height: 30%; ">
+						<input style="margin-top: 15px;" type="submit" value="Place Order">
+					</div>
 				</div>
 			</div>
 		</div>

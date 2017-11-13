@@ -81,7 +81,7 @@ $(document).ready(function() {
                         <li id="{{$new->id}}">
                             <img src="source/images/product/{{$new->image}}" class="items" alt="" style="height: 293px; width: 200px"/>
                             <br clear="all" />
-                            <div>{{$new->name}}</div>
+                            <div><a href="{{route('detail', $new->id)}}">{{$new->name}}</a></div>
                         </li>
                         <!-- Detail Boxes for li -->
                         <div class="detail-view" id="detail-{{$new->id}}">
@@ -90,13 +90,14 @@ $(document).ready(function() {
                             </div>
                             <img src="source/images/product/{{$new->image}}" class="detail_images" alt="" />
                             <div class="detail_info">
-                                <label class='item_name'>{{$new->name}}</label>
+                                <label class='item_name'><a href="{{route('detail', $new->id)}}">{{$new->name}}</a></label>
                                 <br clear="all" />
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborumLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,:
+                                    <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborumLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, -->
+                                    {{$new->description}}
                                     <br clear="all" />
-                                    <br clear="all" /> $
-                                    <span class="price">80.00</span>
+                                    <br clear="all" />
+                                    <span class="price">{{number_format($new->unit_price)}}</span>
                                 </p>
                                 <br clear="all" />
                                 <button class="add-to-cart-button">Add to Cart</button>
@@ -114,7 +115,7 @@ $(document).ready(function() {
         <h4>Brand</h4>
         <ul>
             @foreach($brand as $brandname)
-            <li><a href="#">{{$brandname->name}}</a></li>
+            <li><a href="{{route('brand', $brandname->id)}}">{{$brandname->name}}</a></li>
             @endforeach
         </ul>
     </div>

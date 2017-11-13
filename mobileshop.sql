@@ -28,7 +28,8 @@ CREATE TABLE `bill_details` (
   `id_product` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `unit_price` int(11) NOT NULL,
-  `date_create` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_product_idx` (`id_product`),
   KEY `fk_bills_idx` (`id_bill`),
@@ -60,7 +61,8 @@ CREATE TABLE `bills` (
   `total` int(11) NOT NULL,
   `payment` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `note` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `date_create` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_customer_idx` (`id_customer`),
   CONSTRAINT `fk_customer` FOREIGN KEY (`id_customer`) REFERENCES `customers` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -88,6 +90,8 @@ CREATE TABLE `category` (
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci,
   `image` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -116,7 +120,8 @@ CREATE TABLE `customers` (
   `address` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `phone_number` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
   `note` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `date_create` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -142,7 +147,8 @@ CREATE TABLE `news` (
   `title` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `context` text COLLATE utf8_unicode_ci NOT NULL,
   `image` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `date_create` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -171,7 +177,8 @@ CREATE TABLE `products` (
   `unit_price` int(11) DEFAULT NULL,
   `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `unit` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `date_create` datetime NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -222,8 +229,8 @@ CREATE TABLE `users` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `passwordhash` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `date_create` datetime DEFAULT NULL,
-  `userscol` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -246,4 +253,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-12 20:46:12
+-- Dump completed on 2017-11-12 22:55:10

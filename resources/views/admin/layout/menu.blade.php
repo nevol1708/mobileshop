@@ -30,7 +30,7 @@
             -->
 
             <li>
-                <a href="admin/loaisanpham/danhsach"><i class="fa fa-cube fa-fw"></i> LOẠI SẢN PHẨM<span class="fa arrow"></span></a>
+                <a href="admin/loaisanpham/danhsach"><i class="fa fa-cube fa-fw"></i> HÃNG SẢN XUẤT<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="admin/loaisanpham/danhsach">Danh Sách</a>

@@ -58,12 +58,13 @@
                 </div>
             @endforeach
             </div>
+            {!! $products->render() !!}
         </div>
         <div class="content-sidebar">
             <h4>Brand</h4>
             <ul>
                 @foreach($brand as $brandname)
-                <li><a href="#">{{$brandname->name}}</a></li>
+                <li><a href="{{route('brand', $brandname->id)}}">{{$brandname->name}}</a></li>
                 @endforeach
             </ul>
         </div>

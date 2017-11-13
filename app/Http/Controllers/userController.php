@@ -16,7 +16,7 @@ class userController extends Controller
     public function getDanhSach()
     {
     	$users = User::all();
-        return view('admin.users.danhsach',['users'=>$users]);
+        return view('admin.users.danhsach', compact('users'));
     }
 
 
@@ -127,7 +127,7 @@ class userController extends Controller
 
     public function getDangnhapAdmin()
     {
-        return view('admin.login');
+        return view('admin/login');
     }
 
     public function postDangnhapAdmin(Request $request)
@@ -150,14 +150,14 @@ class userController extends Controller
         }
         else
         {
-            return redirect('admin/dangnhap')->with('thongbao','Email or Password của bạn không chính xác. Mời bạn đăng nhập lại!');
+            return redirect('admin/dangnhap')->with('thongbao','Email hoặc Password của bạn không chính xác. Mời bạn đăng nhập lại!');
         }
     }
 
     public function getDangxuatAdmin()
     {
         Auth::logout();
-        return redirect('admin/dangnhap');
+        return redirect('/');
     }
     
 }

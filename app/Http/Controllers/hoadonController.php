@@ -6,13 +6,14 @@ use Illuminate\Http\Request;
 
 use App\Bill;
 use App\BillDetail;
+use App\Customer;
 
 class hoadonController extends Controller
 {
     //
     public function getDanhSach()
     {
-    	$hoadon = Bill::all();
+    	$hoadon = Bill::with('customer')->get();
     	return view('admin.hoadon.danhsach', compact('hoadon'));
     }
 
@@ -29,7 +30,7 @@ class hoadonController extends Controller
     public function getChiTiet($id)
     {
         $hoadonchitiet = BillDetail::where('id_bill','=', $id)->join('products', 'bill_details.id_product', '=', 'products.id')->get();
-        return view('admin.hoadon.chitiet', compact('hoadonchitiet'));
+        return view('admin/hoadon/chitiet', compact('hoadonchitiet'));
     }
 
 

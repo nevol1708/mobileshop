@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     public function getIndex() {
-        $products = Product::all();
+        $products = Product::paginate(12);
         $brand = ProductCategory::all();
         return view('pages.index', compact('products', 'brand'));
     }
@@ -30,6 +30,13 @@ class PageController extends Controller
     public function getStore() {
         $products = Product::all();
         $brand = ProductCategory::all();
+        return view('pages.store', compact('products', 'brand'));
+    }
+
+    public function getBrandfind($id)
+    {
+        $brand = ProductCategory::all();
+        $products = Product::where('cate_id', '=', $id)->get();
         return view('pages.store', compact('products', 'brand'));
     }
 
@@ -88,7 +95,6 @@ class PageController extends Controller
 
         $bill = new Bill;
         $bill->id_customer = $customer->id;
-        //$bill->date_order = date('Y-m-d');
         $bill->total = $cart->totalPrice;
         $bill->payment = $req->payment_method;
         $bill->note = $req->notes;

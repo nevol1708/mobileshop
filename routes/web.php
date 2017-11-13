@@ -28,6 +28,12 @@ Route::get('store',[
 	'uses'=>'pageController@getStore'
 ]);
 
+// brand find
+Route::get('store/{id}',[
+	'as'=>'brand',
+	'uses'=>'PageController@getBrandfind'
+]);
+
 // login
 Route::get('login',[
 	'as'=>'login',

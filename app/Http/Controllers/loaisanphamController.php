@@ -12,7 +12,7 @@ class loaisanphamController extends Controller
     public function getDanhSach()
     {
     	$loaisanpham = ProductCategory::all();
-    	return view('admin.loaisanpham.danhsach',['loaisanpham'=>$loaisanpham]);
+    	return view('admin.loaisanpham.danhsach', compact('loaisanpham'));
     }
 
 
@@ -25,13 +25,13 @@ class loaisanphamController extends Controller
     {
     	$this->validate($request,
     		[
-    			'name' => 'required|min:4|max:50'
+    			'name' => 'required|min:2|max:50'
     		],
     		[
     			'name.required'=>'Bạn chưa nhập tên loại sản phẩm',
     			'name.unique'=>'Tên loại sản phẩm đã tồn tại',
-    			'name.min'=>'Tên loại sản phẩm phải có độ dài từ 4 đến 50 ký tự',
-    			'name.max'=>'Tên loại sản phẩm phải có độ dài từ 4 đến 50 ký tự',
+    			'name.min'=>'Tên loại sản phẩm phải có độ dài từ 2 đến 50 ký tự',
+    			'name.max'=>'Tên loại sản phẩm phải có độ dài từ 2 đến 50 ký tự',
     		]
     		);
 
@@ -46,7 +46,7 @@ class loaisanphamController extends Controller
     public function getSua($id)
     {
     	$loaisanpham = ProductCategory::find($id);
-    	return view('admin.loaisanpham.sua',['loaisanpham'=>$loaisanpham]);
+    	return view('admin.loaisanpham.sua', compact('loaisanpham'));
     }
 
     public function postSua(Request $request,$id)
