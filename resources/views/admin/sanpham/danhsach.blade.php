@@ -41,8 +41,8 @@
                             <td>{{number_format($sp->unit_price)}}</td>
                             <td><img src="source/images/product/{{$sp->image}}" alt=""></td>
                             <td>{{$sp->unit}}</td>
-                            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/sanpham/sua/{{$sp->id}}"> Xóa</a></td>
-                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/sanpham/xoa/{{$sp->id}}">Sửa</a></td>
+                            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/sanpham/sua/{{$sp->id}}"> Sửa</a></td>
+                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/sanpham/xoa/{{$sp->id}}"> Xóa</a></td>
                         </tr>
                     @endforeach
                 </tbody>

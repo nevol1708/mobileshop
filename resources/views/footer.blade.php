@@ -13,10 +13,11 @@
             </div>
             <div class="col_1_of_4 span_1_of_4">
                 <h3>Store Location</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <p>Số 3 Cầu Giấy, Láng Thượng, Đống Đa, Hà Nội</p>
                 <h3>Order-online</h3>
-                <p>080-1234-56789</p>
-                <p>080-1234-56780</p>
+                <p>Thành +84-1683135028</p>
+                <p>Quang +84-975280467</p>
+                <p>Tùng +84-936343718</p>
             </div>
             <div class="col_1_of_4 span_1_of_4 footer-lastgrid">
                 <h3>News-Letter</h3>

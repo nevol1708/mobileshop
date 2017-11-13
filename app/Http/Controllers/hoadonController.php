@@ -29,7 +29,7 @@ class hoadonController extends Controller
 
     public function getChiTiet($id)
     {
-        $hoadonchitiet = BillDetail::where('id_bill','=', $id)->join('products', 'bill_details.id_product', '=', 'products.id')->get();
+        $hoadonchitiet = BillDetail::where('id_bill','=', $id)->with('product')->get();
         return view('admin/hoadon/chitiet', compact('hoadonchitiet'));
     }
 

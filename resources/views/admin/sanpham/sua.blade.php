@@ -27,23 +27,22 @@
                     </div>
                 @endif
 
-                <form action="admin/sanpham/sua/{{$sanpham->id}}" method="POST">
+                <form action="admin/sanpham/sua/{{$sanpham->id}}" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{csrf_token()}}" />
                     <div class="form-group">
                         <label>Tên sản phẩm</label>
                         <input class="form-control" name="name" placeholder="Nhập tên sản phẩm" value="{{$sanpham->name}}" />
                     </div>
                     
-                    <!-- Chọn loại sản phẩm (mũi tên chỉ xuống chọn) -->
                     <div class="form-group">
-                        <label>ID loại sản phẩm</label>
+                        <label>Hãng sản xuất</label>
                         <select class="form-control" name="id_type"> 
                             @foreach($loaisanpham as $lsp)
                                 <option 
                                     @if($sanpham->id_type == $lsp->id)
                                         {{"selected"}}
                                     @endif
-                                    value="{{$lsp->id}}">{{$lsp->id}}</option>
+                                    value="{{$lsp->id}}">{{$lsp->name}}</option>
                             @endforeach
                         </select>  
                     </div>
@@ -65,9 +64,9 @@
                         <textarea class="form-control" rows="1" name="unit"></textarea>
                     </div>
                   
-                    <button type="submit" class="btn btn-default">SỬA</button>
-                    <button type="reset" class="btn btn-default">RESET</button>
-                <form>
+                    <button type="submit" class="btn btn-success">SỬA</button>
+                    <button type="reset" class="btn btn-danger">RESET</button>
+                </form>
             </div>
         </div>
         <!-- /.row -->

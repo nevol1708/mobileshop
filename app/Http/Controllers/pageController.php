@@ -28,7 +28,7 @@ class PageController extends Controller
     }
 
     public function getStore() {
-        $products = Product::all();
+        $products = Product::paginate(12);
         $brand = ProductCategory::all();
         return view('pages.store', compact('products', 'brand'));
     }

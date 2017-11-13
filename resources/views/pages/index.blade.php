@@ -27,7 +27,7 @@
 <div class="clear"> </div>
 <div class="wrap">
     <div class="content">
-        <div class="top-3-grids">
+        <!-- <div class="top-3-grids">
             <div class="section group">
                 <div class="grid_1_of_3 images_1_of_3">
                     <a href="single.html"><img src="source/images/grid-img1.jpg"></a>
@@ -42,7 +42,7 @@
                     <h3>Lorem Ipsum is simply dummy text </h3>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="content-grids">
             <h4>All Products</h4>
             <div class="section group">

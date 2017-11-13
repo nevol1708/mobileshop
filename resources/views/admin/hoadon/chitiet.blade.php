@@ -31,9 +31,9 @@
                     @foreach($hoadonchitiet as $hdct)
                         <tr class="odd gradeX" align="center">
                             <td>{{$hdct->id}}</td>
-                            <td>{{$hdct->name}}</td>
+                            <td>{{$hdct->product->name}}</td>
                             <td>{{$hdct->quantity}}</td>
-                            <td>{{$hdct->unit_price}}</td>
+                            <td>{{number_format($hdct->unit_price)}}</td>
                             <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/hoadon/xoachitiet/{{$hdct->id}}"> Xóa</a></td>
                         </tr>
                     @endforeach

@@ -74,10 +74,9 @@ class sanphamController extends Controller
     public function postSua(Request $request,$id)
     {
         $loaisanpham = ProductCategory::all();
-        $sanpham = Product::find($id);
     	$this->validate($request,
             [
-                'name' => 'required|unique:products,name|min:4|max:50',
+                'name' => 'required|min:4|max:50',
                 'id_type' => 'required',
                 'unit_price' => 'required',
                 'unit' => 'required',
@@ -87,15 +86,16 @@ class sanphamController extends Controller
                 'name.unique'=>'Tên sản phẩm đã tồn tại',
                 'name.min'=>'Tên sản phẩm phải có độ dài từ 4 đến 50 ký tự',
                 'name.max'=>'Tên sản phẩm phải có độ dài từ 4 đến 50 ký tự',
-
                 'id_type.required'=>'Bạn chưa chọn id loại sản phẩm',
                 'unit_price.required' => 'Bạn chưa nhập giá tiền sản phẩm',
-                'unit.required' => 'Bạn chưa nhập đơn vị sản phẩm',
+                'unit.required' => 'Bạn chưa nhập số lượng sản phẩm',
             ]
             );
+        $sanpham = Product::find($id);
         if(Input::hasFile('fImages')) {
             $file = Input::file('fImages');
             $file->move('source/images/product', $file->getClientOriginalName());
+            
         }
         $sanpham->name = $request->name;
         $sanpham->cate_id = $request->id_type;

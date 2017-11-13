@@ -36,7 +36,7 @@
                             <td>{{$hd->id}}</td>
                             <td>{{$hd->customer->name}}</td>
                             <td>{{$hd->created_at}}</td>
-                            <td>{{$hd->total}}</td>
+                            <td>{{number_format($hd->total)}}</td>
                             <td>{{$hd->payment}}</td>
                             <td>{{$hd->note}}</td>
                             <td class="center"><i class="fa fa-info  fa-fw"></i><a href="admin/hoadon/chitiet/{{$hd->id}}"> Chi Tiết</a></td>
