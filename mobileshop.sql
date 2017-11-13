@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 13, 2017 at 10:18 AM
+-- Generation Time: Nov 13, 2017 at 07:37 PM
 -- Server version: 5.6.37
 -- PHP Version: 7.1.8
 
@@ -34,15 +34,14 @@ CREATE TABLE IF NOT EXISTS `bills` (
   `note` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `bills`
 --
 
 INSERT INTO `bills` (`id`, `id_customer`, `total`, `payment`, `note`, `created_at`, `updated_at`) VALUES
-(2, 4, 30600000, 'COD', 'Giao hàng nhanh', '2017-11-12 19:40:47', '2017-11-12 19:40:47'),
-(3, 5, 30600000, 'ATM', NULL, '2017-11-13 11:50:56', '2017-11-13 11:50:56');
+(4, 6, 32100000, 'ATM', NULL, '2017-11-13 19:05:27', '2017-11-13 19:05:27');
 
 -- --------------------------------------------------------
 
@@ -58,15 +57,15 @@ CREATE TABLE IF NOT EXISTS `bill_details` (
   `unit_price` int(11) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `bill_details`
 --
 
 INSERT INTO `bill_details` (`id`, `id_bill`, `id_product`, `quantity`, `unit_price`, `created_at`, `updated_at`) VALUES
-(1, 2, 2, 1, 30600000, '2017-11-12 19:40:47', '2017-11-12 19:40:47'),
-(2, 3, 2, 1, 30600000, '2017-11-13 11:50:56', '2017-11-13 11:50:56');
+(3, 4, 3, 1, 22500000, '2017-11-13 19:05:27', '2017-11-13 19:05:27'),
+(4, 4, 4, 1, 9600000, '2017-11-13 19:05:27', '2017-11-13 19:05:27');
 
 -- --------------------------------------------------------
 
@@ -111,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `note` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `customers`
@@ -119,7 +118,8 @@ CREATE TABLE IF NOT EXISTS `customers` (
 
 INSERT INTO `customers` (`id`, `name`, `gender`, `email`, `address`, `phone_number`, `note`, `created_at`, `updated_at`) VALUES
 (4, 'Phạm Tiến Thành', 'nam', 'nevol.love@gmail.com', 'Hà Nội', '01683135028', 'Giao hàng nhanh', '2017-11-12 19:40:47', '2017-11-12 19:40:47'),
-(5, 'Chu Văn Quang', 'nam', 'quangchu@gmail.com', 'Vĩnh Phúc', '01685275028', NULL, '2017-11-13 11:50:56', '2017-11-13 11:50:56');
+(5, 'Chu Văn Quang', 'nam', 'quangchu@gmail.com', 'Vĩnh Phúc', '01685275028', NULL, '2017-11-13 11:50:56', '2017-11-13 11:50:56'),
+(6, 'Linh', 'nữ', 'linh@gmail.com', 'Ngọc Khánh, Hà Nội', '01685275068', NULL, '2017-11-13 19:05:27', '2017-11-13 19:05:27');
 
 -- --------------------------------------------------------
 
@@ -137,16 +137,16 @@ CREATE TABLE IF NOT EXISTS `products` (
   `unit` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`id`, `name`, `cate_id`, `description`, `unit_price`, `image`, `unit`, `created_at`, `updated_at`) VALUES
-(2, 'Apple iPhone X 64GB Chính hãng', 1, 'Điện thoại Iphone thế hệ thứ 10 của Apple', 30600000, 'x-gray_5.jpg', '10', '2017-11-12 17:27:07', '2017-11-12 17:27:07'),
-(3, 'Samsung Galaxy Note 8 Chính hãng', 3, 'Samsung Galaxy Note 8 chính hãng – Sự trở lại của gã khổng lồ Samsung', 22500000, 'note-8-black_1.jpg', '10', '2017-11-13 12:29:14', '2017-11-13 12:29:14'),
-(4, 'Apple iPhone 6S Plus 16GB', 1, 'Không phải là sản phẩm đi đầu trong lĩnh vực phablet (smartphone lai máy tính bảng) nhưng iPhone 6S Plus 16 GB là một trong những chiếc điện thoại màn hình lớn đáng mua nhất trên thị trường hiện nay.', 9600000, 'iphone-6s-plus-gold_3_4.png', '5', '2017-11-13 12:30:15', '2017-11-13 12:30:15');
+(3, 'Samsung Galaxy Note 8 Chính hãng', 3, NULL, 24000000, 'note-8-black_1.jpg', '10', '2017-11-13 12:29:14', '2017-11-13 19:41:16'),
+(4, 'Apple iPhone 6S Plus 16GB', 1, 'Không phải là sản phẩm đi đầu trong lĩnh vực phablet (smartphone lai máy tính bảng) nhưng iPhone 6S Plus 16 GB là một trong những chiếc điện thoại màn hình lớn đáng mua nhất trên thị trường hiện nay.', 9600000, 'iphone-6s-plus-gold_3_4.png', '5', '2017-11-13 12:30:15', '2017-11-13 12:30:15'),
+(5, 'Apple iPhone X 64GB Chính hãng', 1, 'Điện thoại iphone mới ra mắt của apple', 30600000, 'x-gray_5.jpg', '10', '2017-11-13 19:20:28', '2017-11-13 19:20:28');
 
 -- --------------------------------------------------------
 
@@ -163,14 +163,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `admin_user`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Phạm Tiến Thành', 'admin@gmail.com', '$2y$10$Dwj1ahKqVYSO5MjCHl0Hu.qbgvD8lNKEwS9yEnk.3tHCXuZBOkG4e', '1', 'EknLeSrpCP63OBGc25qQGLewI7fAIdQYRjbCu5TNHWPS0OWieOfzntLgTqg8', '2017-11-12 15:58:42', '2017-11-12 15:58:42');
+(1, 'Phạm Tiến Thành', 'admin@gmail.com', '$2y$10$Dwj1ahKqVYSO5MjCHl0Hu.qbgvD8lNKEwS9yEnk.3tHCXuZBOkG4e', '1', 'RyMRGAdwFzMvLdeFcXKjBaEFxWCa8aYDgp7PYShunldxsAxHknPo1fHRHVt9', '2017-11-12 15:58:42', '2017-11-12 15:58:42'),
+(2, 'Vũ Mạnh Tùng', 'user@gmail.com', '$2y$10$Loepzzh4ixZlNgHsCQKcBOVxNELThYbZ/NjbQXz88BVSQHSoDBqHK', '0', 'mlUYsp4jOf2jUthLBNret3SV2vsI11LKnuYPzXUy6mMny2mpuYJ7NcN1H8iG', '2017-11-13 19:58:24', '2017-11-13 19:58:24'),
+(3, 'Chu Văn Quang', 'guest@gmail.com', '$2y$10$1KSSzEZW9csNnQw3pzTMhuc7SCDjH.I33qHeUazDh52ms4AIaqr1m', '0', NULL, '2017-11-13 20:52:48', '2017-11-13 20:52:48');
 
 --
 -- Indexes for dumped tables
@@ -224,12 +226,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `bill_details`
 --
 ALTER TABLE `bill_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `category`
 --
@@ -239,17 +241,17 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
@@ -264,8 +266,8 @@ ALTER TABLE `bills`
 -- Constraints for table `bill_details`
 --
 ALTER TABLE `bill_details`
-  ADD CONSTRAINT `bill_details_ibfk_1` FOREIGN KEY (`id_bill`) REFERENCES `bills` (`id`),
-  ADD CONSTRAINT `fk_product` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `bill_details_ibfk_1` FOREIGN KEY (`id_bill`) REFERENCES `bills` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_product` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `products`
