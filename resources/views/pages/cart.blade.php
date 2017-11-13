@@ -38,7 +38,7 @@
 		<div class="col-lg-6">
 			<div class="content">
 				<div class="content2">
-					
+					@if(Auth::check())
 						<div style="float: left; width: 50%; height: 100%">
 							<div class="space"></div>
 							<div class="form-block">
@@ -89,7 +89,7 @@
 								<textarea id="notes" name="notes" class="text"></textarea>
 							</div>
 						</div>
-					
+					@endif
 					<div style="width: 100%; height: 30%; ">
 						<input style="margin-top: 15px;" type="submit" value="Place Order">
 					</div>

@@ -48,7 +48,7 @@
             <div class="section group">
             @foreach($products as $product)   
                 <div class="grid_1_of_4 images_1_of_4 products-info">
-                    <img src="source/images/product/{{$product->image}}" style="height: 293px; width: 200px">
+                    <img src="source/images/product/{{$product->image}}" >
                     <a href="{{route('detail', $product->id)}}">{{$product->name}}</a>
                     <h3>{{number_format($product->unit_price)}}đ</h3>
                     <ul>
