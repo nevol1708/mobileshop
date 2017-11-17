@@ -34,6 +34,12 @@ Route::get('store/{id}',[
 	'uses'=>'PageController@getBrandfind'
 ]);
 
+// price find
+Route::get('price/{min}-to-{max}',[
+	'as'=>'price',
+	'uses'=>'PageController@getPricefind'
+]);
+
 // login
 Route::get('login',[
 	'as'=>'login',
@@ -117,22 +123,6 @@ Route::get('admin/logout','userController@getDangxuatAdmin');
 
 Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 
-	Route::group(['prefix'=>'slide'],function(){
-		// admin/slide/danhsach || sua || them
-		Route::get('danhsach','slideController@getDanhSach');
-
-		Route::get('sua/{id}','slideController@getSua');
-		Route::post('sua/{id}','slideController@postSua');
-
-		Route::get('xoa/{id}','slideController@getXoa');
-		
-		//Hàm get gọi chức năng thêm lên
-		Route::get('them','slideController@getThem');
-		//Hàm post nhận dữ liệu rồi lưu vào cơ sở dữ liệu database
-		Route::post('them','slideController@postThem');
-	});
-
-
 	Route::group(['prefix'=>'loaisanpham'],function(){
 		// admin/loaisanpham/danhsach || sua || them
 		Route::get('danhsach','loaisanphamController@getDanhSach');
@@ -174,6 +164,10 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 		Route::get('chitiet/{id}','hoadonController@getChiTiet');
 
 		Route::get('xoachitiet/{id}','hoadonController@getXoaChiTiet');
+
+		Route::get('xuly/{id}', 'hoadonController@getDaXuLy');
+
+		Route::get('chuaxuly/{id}', 'hoadonController@getChuaXuLy');
 	});
 
 
@@ -182,6 +176,8 @@ Route::group(['prefix'=>'admin','middleware'=>'adminLogin'],function(){
 		Route::get('danhsach','khachhangController@getDanhSach');
 
 		Route::get('xoa/{id}','khachhangController@getXoa');
+
+		Route::get('chitiet/{id}', 'khachhangController@findCustomer');
 	});
 
 

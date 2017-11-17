@@ -19,7 +19,7 @@
             </a>
             <ul class="dropdown-menu dropdown-user">
                 @if(Auth::user())
-                <li><a><i class="fa fa-user fa-fw"></i> {{Auth::user()->name}}</a>
+                <li><a><i class="fa fa-user fa-fw"></i> {{Auth::user()->name}} </a>
                 </li>
                 <li><a href="admin/users/sua/{{Auth::user()->id}}"><i class="fa fa-gear fa-fw"></i> Settings</a>
                 </li>

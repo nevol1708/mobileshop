@@ -33,11 +33,16 @@ class PageController extends Controller
         return view('pages.store', compact('products', 'brand'));
     }
 
-    public function getBrandfind($id)
-    {
+    public function getBrandfind($id) {
         $brand = ProductCategory::all();
         $products = Product::where('cate_id', '=', $id)->get();
         return view('pages.store', compact('products', 'brand'));
+    }
+
+    public function getPricefind($min_price, $max_price) {
+        $brand = ProductCategory::all();
+        $products = Product::whereBetween('unit_price', [$min_price, $max_price])->get();
+        return view('pages.price', compact('products', 'brand'));
     }
 
     public function getAddtoCart(Request $req,$id){

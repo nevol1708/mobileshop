@@ -24,4 +24,10 @@ class khachhangController extends Controller
     	return redirect('admin/khachhang/danhsach')->with('thongbao','Xóa thành công');
     }
 
+    public function findCustomer($id) 
+    {
+        $khachhang = Customer::find($id);
+        return view('admin.khachhang.detail', compact('khachhang'));
+    }
+
 }

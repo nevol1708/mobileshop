@@ -20,7 +20,8 @@
             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                 <thead>
                     <tr align="center">
-                        <th>ID hóa đơn</th>
+                        <th>Đã xử lý</th>
+                        <th>ID</th>
                         <th>Tên khách hàng</th>
                         <th>Ngày đặt hàng</th>
                         <th>Tổng tiền</th>
@@ -33,8 +34,13 @@
                 <tbody>
                     @foreach($hoadon as $hd)
                         <tr class="odd gradeX" align="center">
+                            @if($hd->complete == "")
+                                <td><a href="admin/hoadon/xuly/{{$hd->id}}">Đánh dấu đã xử lý</a></td>
+                            @else
+                                <td><a href="admin/hoadon/chuaxuly/{{$hd->id}}">Đánh dấu chưa xử lý</a></td>
+                            @endif
                             <td>{{$hd->id}}</td>
-                            <td>{{$hd->customer->name}}</td>
+                            <td><a href="admin/khachhang/chitiet/{{$hd->customer->id}}">{{$hd->customer->name}}</a></td>
                             <td>{{$hd->created_at}}</td>
                             <td>{{number_format($hd->total)}}</td>
                             <td>{{$hd->payment}}</td>

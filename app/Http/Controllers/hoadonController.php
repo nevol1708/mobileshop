@@ -41,4 +41,20 @@ class hoadonController extends Controller
 
         return redirect('admin/hoadon/chitiet')->with('thongbao','Xóa thành công');
     }
+
+    public function getDaXuLy($id)
+    {
+        $hoadon = Bill::find($id);
+        $hoadon->complete = 1;
+        $hoadon->save();
+        return redirect('admin/hoadon/danhsach/')->with('thongbao','Đã đánh dấu hóa đơn là đã xử lý');
+    }
+
+    public function getChuaXuLy($id)
+    {
+        $hoadon = Bill::find($id);
+        $hoadon->complete = 0;
+        $hoadon->save();
+        return redirect('admin/hoadon/danhsach/')->with('thongbao','Đã đánh dấu hóa đơn là chưa xử lý');
+    }
 }
