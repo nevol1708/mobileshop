@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 13, 2017 at 07:37 PM
+-- Generation Time: Nov 17, 2017 at 12:46 PM
 -- Server version: 5.6.37
 -- PHP Version: 7.1.8
 
@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS `bills` (
   `total` int(11) NOT NULL,
   `payment` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `note` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `complete` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -40,8 +41,8 @@ CREATE TABLE IF NOT EXISTS `bills` (
 -- Dumping data for table `bills`
 --
 
-INSERT INTO `bills` (`id`, `id_customer`, `total`, `payment`, `note`, `created_at`, `updated_at`) VALUES
-(4, 6, 32100000, 'ATM', NULL, '2017-11-13 19:05:27', '2017-11-13 19:05:27');
+INSERT INTO `bills` (`id`, `id_customer`, `total`, `payment`, `note`, `complete`, `created_at`, `updated_at`) VALUES
+(4, 6, 32100000, 'ATM', NULL, NULL, '2017-11-13 19:05:27', '2017-11-13 19:05:27');
 
 -- --------------------------------------------------------
 
