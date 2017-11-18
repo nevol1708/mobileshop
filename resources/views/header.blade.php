@@ -20,6 +20,11 @@
                 <label>{{Session('cart')->totalQty}}@else&nbsp;0</label>
                 @endif
             </li>
+            @if(Session::has('compare'))
+            <li>
+                <a href="{{route('compare')}}">Compare</a>
+            </li>
+            @endif
         </ul>
     </div>
     <div class="clear"> </div>

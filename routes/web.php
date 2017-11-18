@@ -51,7 +51,7 @@ Route::get('price/desc', [
 ]);
 
 // compare products
-Route::get('compare/{id1}-and-{id2}', [
+Route::get('compare', [
 	'as'=>'compare',
 	'uses'=>'PageController@compareProducts'
 ]);

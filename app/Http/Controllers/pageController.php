@@ -157,10 +157,8 @@ class PageController extends Controller
         return redirect()->back()->with('thanhcong','Tạo tài khoản thành công');
     }
 
-    public function compareProducts($id1, $id2) {
-        $product = Product::find($id1)->first();
-        $other = Product::find($id2)->first();
-        return view('pages.compare', compact('product', 'other'));
+    public function compareProducts() {
+        return view('pages.compare');
     }
 
     public function getAddtoCompare(Request $req, $id) {
