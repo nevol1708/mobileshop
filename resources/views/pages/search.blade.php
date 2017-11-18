@@ -13,6 +13,7 @@
                     <ul>
                         <li><a class="cart" href="{{route('addtoCart', $new->id)}}"> </a></li>
                         <li><a class="i" href="{{route('detail', $new->id)}}"> </a></li>
+                        <li><a class="Compar" href="{{route('addtoCompare', $new->id)}}"></a></li>
                     </ul>
                 </div>
             </div>
