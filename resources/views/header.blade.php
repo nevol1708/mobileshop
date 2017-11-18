@@ -37,8 +37,8 @@
         <div class="top-nav">
             <ul>
                 <li><a href="{{route('index')}}">Trang chủ</a></li>
-                <li><a href="{{route('about')}}">Về chúng tôi</a></li>
                 <li><a href="{{route('store')}}">Sản phẩm</a></li>
+                <li><a href="{{route('about')}}">Về chúng tôi</a></li>
                 <li><a href="{{route('contact')}}">Liên hệ</a></li>
             </ul>
         </div>

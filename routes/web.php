@@ -50,15 +50,15 @@ Route::get('price/desc', [
 	'uses'=>'PageController@getPriceDESC'
 ]);
 
-// login
-Route::get('login',[
-	'as'=>'login',
-	'uses'=>'PageController@getLogin'
-]);
-Route::post('login',[
-	'as'=>'login',
-	'uses'=>'PageController@postLogin'
-]);
+// // login
+// Route::get('login',[
+// 	'as'=>'login',
+// 	'uses'=>'PageController@getLogin'
+// ]);
+// Route::post('login',[
+// 	'as'=>'login',
+// 	'uses'=>'PageController@postLogin'
+// ]);
 
 // register
 Route::get('register',[

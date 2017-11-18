@@ -45,7 +45,7 @@
             {!! $products->render() !!}
         </div>
         <div class="content-sidebar">
-            <h4>Hãng Sản Xuất</h4>
+            <h4>Thương hiệu</h4>
             <ul>
                 @foreach($brand as $brandname)
                 <li><a href="{{route('brand', $brandname->id)}}">{{$brandname->name}}</a></li>
