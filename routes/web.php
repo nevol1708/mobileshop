@@ -61,6 +61,11 @@ Route::get('add-to-compare/{id}',[
 	'uses'=>'PageController@getAddtoCompare'
 ]);
 
+Route::get('del-from-compare/{id}', [
+	'as'=>'delfromCompare',
+	'uses'=>'PageController@getDelfromCompare'
+]);
+
 
 // register
 Route::get('register',[

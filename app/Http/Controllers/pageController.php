@@ -169,4 +169,18 @@ class PageController extends Controller
         $req->session()->put('compare',$compare);
         return redirect()->back();
     }
+
+    public function getDelfromCompare($id) {
+        $oldCompare = Session::has('compare')?Session::get('compare'):null;
+        $compare = new Compare($oldCompare);
+        $compare->removeItem($id);
+        if(count($compare->items)>0){
+            Session::put('compare',$compare);
+        }
+        else{
+            Session::forget('compare');
+            return redirect("");
+        }
+        return redirect()->back();
+    }
 }

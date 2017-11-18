@@ -38,7 +38,7 @@
 		@if(!Auth::check())
 		<div class="col-lg-6">
 			<div class="content">
-				<div class="content2">
+				<div class="content2" style="clear: both">
 					<div style="float: left; width: 50%; height: 100%">
 						<div class="space"></div>
 						<div class="form-block">
@@ -98,7 +98,7 @@
 		@else
 		<div class="col-lg-6">
 			<div class="content">
-				<div class="content2">
+				<div class="content2" style="clear: both">
 					<div style="float: left; width: 50%; height: 100%">
 						<div class="space"></div>
 						<div class="form-block">
