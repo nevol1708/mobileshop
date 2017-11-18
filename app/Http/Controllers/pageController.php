@@ -8,6 +8,7 @@ use App\User;
 use App\Customer;
 use App\Bill;
 use App\BillDetail;
+use App\Compare;
 use Session;
 use Hash;
 use Auth;
@@ -35,7 +36,7 @@ class PageController extends Controller
 
     public function getBrandfind($id) {
         $brand = ProductCategory::all();
-        $products = Product::where('cate_id', '=', $id)->get();
+        $products = Product::where('cate_id', '=', $id)->paginate(12);
         return view('pages.store', compact('products', 'brand'));
     }
 
@@ -62,7 +63,7 @@ class PageController extends Controller
         $oldCart = Session('cart')?Session::get('cart'):null;
         $cart = new Cart($oldCart);
         $cart->add($product, $id);
-        $req->session()->put('cart',$cart);
+        $req->session()->put('cart', $cart);
         return redirect()->back();
     }
 
@@ -154,5 +155,20 @@ class PageController extends Controller
         $user->remember_token = $req->remember_token;
         $user->save();
         return redirect()->back()->with('thanhcong','Tạo tài khoản thành công');
+    }
+
+    public function compareProducts($id1, $id2) {
+        $product = Product::find($id1)->first();
+        $other = Product::find($id2)->first();
+        return view('pages.compare', compact('product', 'other'));
+    }
+
+    public function getAddtoCompare(Request $req, $id) {
+        $product = Product::find($id);
+        $oldCompare = Session('compare')?Session::get('compare'):null;
+        $compare = new Compare($oldCompare);
+        $compare->add($product, $id);
+        $req->session()->put('compare',$compare);
+        return redirect()->back();
     }
 }

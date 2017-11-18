@@ -1564,3 +1564,16 @@ a#show_cart {
 	padding: 6px 1px;
 }
 }
+#imgcontain {
+	height: 400px;
+	width: 250px;
+
+}
+#imgbox{
+	width: 100%;
+	height: 70%
+}
+#imgbox img{
+	width: 100%;
+	height: 100%
+}

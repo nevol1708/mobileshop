@@ -31,8 +31,8 @@
             <h4>Sản phẩm mới</h4>
             <div class="section group">
             @foreach($products as $product)   
-                <div class="grid_1_of_4 images_1_of_4 products-info">
-                    <img src="source/images/product/{{$product->image}}" >
+                <div id="imgcontain" class="grid_1_of_4 images_1_of_4 products-info">
+                    <div id="imgbox"><img src="source/images/product/{{$product->image}}" ></div>
                     <a href="{{route('detail', $product->id)}}">{{$product->name}}</a>
                     <h3>{{number_format($product->unit_price)}}đ</h3>
                     <ul>

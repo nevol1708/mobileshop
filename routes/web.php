@@ -50,15 +50,17 @@ Route::get('price/desc', [
 	'uses'=>'PageController@getPriceDESC'
 ]);
 
-// // login
-// Route::get('login',[
-// 	'as'=>'login',
-// 	'uses'=>'PageController@getLogin'
-// ]);
-// Route::post('login',[
-// 	'as'=>'login',
-// 	'uses'=>'PageController@postLogin'
-// ]);
+// compare products
+Route::get('compare/{id1}-and-{id2}', [
+	'as'=>'compare',
+	'uses'=>'PageController@compareProducts'
+]);
+
+Route::get('add-to-compare/{id}',[
+	'as'=>'addtoCompare',
+	'uses'=>'PageController@getAddtoCompare'
+]);
+
 
 // register
 Route::get('register',[

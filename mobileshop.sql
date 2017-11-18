@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.15.9
--- https://www.phpmyadmin.net
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 17, 2017 at 12:46 PM
--- Server version: 5.6.37
+-- Host: 127.0.0.1
+-- Generation Time: Nov 18, 2017 at 11:07 AM
+-- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -26,7 +28,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `bills`
 --
 
-CREATE TABLE IF NOT EXISTS `bills` (
+CREATE TABLE `bills` (
   `id` int(11) NOT NULL,
   `id_customer` int(11) NOT NULL,
   `total` int(11) NOT NULL,
@@ -35,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `bills` (
   `complete` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `bills`
@@ -50,7 +52,7 @@ INSERT INTO `bills` (`id`, `id_customer`, `total`, `payment`, `note`, `complete`
 -- Table structure for table `bill_details`
 --
 
-CREATE TABLE IF NOT EXISTS `bill_details` (
+CREATE TABLE `bill_details` (
   `id` int(11) NOT NULL,
   `id_bill` int(11) NOT NULL,
   `id_product` int(11) NOT NULL,
@@ -58,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `bill_details` (
   `unit_price` int(11) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `bill_details`
@@ -74,14 +76,14 @@ INSERT INTO `bill_details` (`id`, `id_bill`, `id_product`, `quantity`, `unit_pri
 -- Table structure for table `category`
 --
 
-CREATE TABLE IF NOT EXISTS `category` (
+CREATE TABLE `category` (
   `id` int(11) NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci,
   `image` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `category`
@@ -101,7 +103,7 @@ INSERT INTO `category` (`id`, `name`, `description`, `image`, `created_at`, `upd
 -- Table structure for table `customers`
 --
 
-CREATE TABLE IF NOT EXISTS `customers` (
+CREATE TABLE `customers` (
   `id` int(11) NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `gender` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -111,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `note` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `customers`
@@ -128,7 +130,7 @@ INSERT INTO `customers` (`id`, `name`, `gender`, `email`, `address`, `phone_numb
 -- Table structure for table `products`
 --
 
-CREATE TABLE IF NOT EXISTS `products` (
+CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `cate_id` int(11) NOT NULL,
@@ -138,16 +140,28 @@ CREATE TABLE IF NOT EXISTS `products` (
   `unit` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`id`, `name`, `cate_id`, `description`, `unit_price`, `image`, `unit`, `created_at`, `updated_at`) VALUES
-(3, 'Samsung Galaxy Note 8 Chính hãng', 3, NULL, 24000000, 'note-8-black_1.jpg', '10', '2017-11-13 12:29:14', '2017-11-13 19:41:16'),
-(4, 'Apple iPhone 6S Plus 16GB', 1, 'Không phải là sản phẩm đi đầu trong lĩnh vực phablet (smartphone lai máy tính bảng) nhưng iPhone 6S Plus 16 GB là một trong những chiếc điện thoại màn hình lớn đáng mua nhất trên thị trường hiện nay.', 9600000, 'iphone-6s-plus-gold_3_4.png', '5', '2017-11-13 12:30:15', '2017-11-13 12:30:15'),
-(5, 'Apple iPhone X 64GB Chính hãng', 1, 'Điện thoại iphone mới ra mắt của apple', 30600000, 'x-gray_5.jpg', '10', '2017-11-13 19:20:28', '2017-11-13 19:20:28');
+(3, 'Samsung Galaxy Note 8 Chính hãng', 3, 'Màn hình lớn với kích thước rộng hơn để trải nghiệm những điều tuyệt vời hơn. Galaxy Note8 với màn hình rộng 6.3 inch, phá vỡ mọi khuôn khổ giới hạn. Đây là màn hình lớn nhất trên các dòng Galaxy Note, nhưng vẫn thật vừa vặn trong lòng bàn tay.', 24000000, 'note-8-black_1.jpg', '10', '2017-11-13 12:29:14', '2017-11-13 19:41:16'),
+(4, 'Apple iPhone 6S Plus 16GB', 1, 'Không phải là sản phẩm đi đầu trong lĩnh vực phablet (smartphone lai máy tính bảng) nhưng iPhone 6S Plus 16 GB là một trong những chiếc điện thoại màn hình lớn đáng mua nhất trên thị trường hiện nay.', 9600000, 'iphone-6s-plus-gold_3_4.jpg', '5', '2017-11-13 12:30:15', '2017-11-13 12:30:15'),
+(5, 'Apple iPhone X 64GB Chính hãng', 1, 'Điện thoại iphone mới ra mắt của apple', 30600000, 'x-gray_5.jpg', '10', '2017-11-13 19:20:28', '2017-11-13 19:20:28'),
+(6, 'Điện thoại Xiaomi Redmi Note 5A - 16GB', 2, 'Xiaomi Redmi Note 5A là chiếc smartphone giá rẻ, có màn hình lớn sắc nét, chạy hệ điều hành Android 7.0 với giao diện MIUI 9 tuyệt đẹp và camera selfie nhiều chế độ làm đẹp hấp dẫn.', 2750000, '5.jpg', '10', '2017-11-13 19:20:28', '2017-11-13 19:20:28'),
+(7, 'Điện thoại Xiaomi Redmi Note 4X - 64GB', 2, 'Cấu hình mạnh, cảm biến vân tay 1 chạm, camera tốt, thiết kế đẹp, pin khủng được hòa trung vào tổng thể của Redmi Note 4X. Những điều trên có thể khẳng định đây là một smartphone cực kì đáng mua.', 4590000, '6.jpg', '10', '2017-11-13 19:20:28', '2017-11-13 19:20:28'),
+(8, 'Điện thoại Xiaomi Mi 5s - 64GB', 2, 'Xiaomi Mi 5S chính hãng là nâng cấp của Mi5 - Flagship Xiaomi 2016, cấu hình và chất lượng ngang tầm với Samsung S7, iPhone 6S, nhưng có mức giá rẻ chỉ bằng 1 nửa. Sản phẩm được thiết kế sang trọng với mặt lưng cong, viền kim loại. Chiệc điện thoại Xiaomi Mi 5S phù hợp với bạn nào thích 1 chiếc điện thoại đẹp, pin tốt, và nhỏ gọn', 6790000, '7.jpg', '10', '2017-11-13 19:20:28', '2017-11-13 19:20:28'),
+(9, 'Điện thoại Xiaomi Mi Mix 2', 2, 'Không phải là sản phẩm đi đầu trong lĩnh vực phablet (smartphone lai máy tính bảng) nhưng iPhone 6S Plus 16 GB là một trong những chiếc điện thoại màn hình lớn đáng mua nhất trên thị trường hiện nay.', 12990000, '8.jpg', '10', '2017-11-13 19:20:28', '2017-11-13 19:20:28'),
+(10, 'Điện thoại Xiaomi Mi Mix Gold Edition', 2, 'Không phải là sản phẩm đi đầu trong lĩnh vực phablet (smartphone lai máy tính bảng) nhưng iPhone 6S Plus 16 GB là một trong những chiếc điện thoại màn hình lớn đáng mua nhất trên thị trường hiện nay.', 11490000, '9.jpg', '5', '2017-11-13 19:20:28', '2017-11-13 19:20:28'),
+(11, 'Điện thoại Xiaomi Mi 6 - 64GB - Ram 6GB', 2, 'Không phải là sản phẩm đi đầu trong lĩnh vực phablet (smartphone lai máy tính bảng) nhưng iPhone 6S Plus 16 GB là một trong những chiếc điện thoại màn hình lớn đáng mua nhất trên thị trường hiện nay.', 9490000, '10.jpg', '20', '2017-11-13 19:20:28', '2017-11-13 19:20:28'),
+(12, 'Điện thoại Xiaomi Redmi 4 Prime 2017', 2, 'Không phải là sản phẩm đi đầu trong lĩnh vực phablet (smartphone lai máy tính bảng) nhưng iPhone 6S Plus 16 GB là một trong những chiếc điện thoại màn hình lớn đáng mua nhất trên thị trường hiện nay.', 4490000, '11.jpg', '15', '2017-11-13 19:20:28', '2017-11-13 19:20:28'),
+(13, 'Điện thoại Xiaomi Redmi Note 4', 2, 'Không phải là sản phẩm đi đầu trong lĩnh vực phablet (smartphone lai máy tính bảng) nhưng iPhone 6S Plus 16 GB là một trong những chiếc điện thoại màn hình lớn đáng mua nhất trên thị trường hiện nay.', 3875000, '12.jpg', '10', '2017-11-13 19:20:28', '2017-11-13 19:20:28'),
+(14, 'Điện thoại Samsung Galaxy Note 8 ', 3, 'Galaxy Note 8 là niềm hy vọng vực lại dòng Note danh tiếng của Samsung với diện mạo nam tính, sang trọng. Trang bị camera kép xóa phông thời thượng, màn hình vô cực như trên S8 Plus, bút Spen với nhiều tính năng mới và nhiều công nghệ được Samsung ưu ái đem lên Note 8.', 13450000, '13.jpg', '5', '2017-11-13 19:20:28', '2017-11-13 19:20:28'),
+(15, 'Điện thoại Samsung Galaxy J7 Plus - Chính hãng', 3, 'Galaxy J7+ là một lựa chọn smartphone phân khúc trung cấp khá nổi bật ở thời điểm hiện tại, máy sở hữu thiết kế kim loại nguyên khối, gia công cứng cáp, camera kép với ống kính khẩu độ lớn và khả năng xóa phông chuyên nghiệp, vi xử lý mạnh mẽ kết hợp với mức RAM 4GB cho trải nghiệm sử dụng tốt.', 8690000, '14.jpg', '10', '2017-11-13 19:20:28', '2017-11-13 19:20:28'),
+(16, 'Điện thoại Samsung Galaxy S8 Plus', 3, NULL, 12990000, '15.jpg', '5', '2017-11-13 19:20:28', '2017-11-13 19:20:28'),
+(17, 'Điện thoại Samsung Galaxy C5', 3, NULL, 5390000, '16.jpg', '5', '2017-11-13 19:20:28', '2017-11-13 19:20:28');
 
 -- --------------------------------------------------------
 
@@ -155,7 +169,7 @@ INSERT INTO `products` (`id`, `name`, `cate_id`, `description`, `unit_price`, `i
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -164,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `users`
@@ -227,32 +241,32 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `bill_details`
 --
 ALTER TABLE `bill_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
@@ -275,6 +289,7 @@ ALTER TABLE `bill_details`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`cate_id`) REFERENCES `category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
