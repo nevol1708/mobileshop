@@ -20,21 +20,27 @@
                 </div>
             @endforeach
             </div>
+            {!! $products->render() !!}
         </div>
     </div>
     <div class="content-sidebar">
-        <h4>Brand</h4>
+        <h4>Hãng Sản Xuất</h4>
         <ul>
             @foreach($brand as $brandname)
             <li><a href="{{route('brand', $brandname->id)}}">{{$brandname->name}}</a></li>
             @endforeach
         </ul>
-        <h4>Price</h4>
+        <h4>Giá</h4>
         <ul>
             <li><a href="{{route('price', [0, 6000000])}}"> < 6tr</a></li>
             <li><a href="{{route('price', [6000000, 10000000])}}"> 6tr - 10tr</a></li>
             <li><a href="{{route('price', [10000000, 15000000])}}"> 10tr - 15tr</a></li>
             <li><a href="{{route('price', [15000000, 100000000])}}"> >15tr</a></li>
+        </ul>
+        <h4>Sắp xếp</h4>
+        <ul>
+            <li><a href="{{route('priceasc')}}">Giá tăng dần</a></li>
+            <li><a href="{{route('pricedesc')}}">Giá giảm dần</a></li>
         </ul>
     </div>
 </div>

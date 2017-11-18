@@ -7,9 +7,9 @@
             <div class="details-page">
                 <div class="back-links">
                     <ul>
-                        <li><a href="{{route('index')}}">Home</a><img src="source/images/arrow.png" alt=""></li>
-                        <li><a href="{{route('store')}}">Product</a><img src="source/images/arrow.png" alt=""></li>
-                        <li><a href="{{route('detail', $product->id)}}">Product-Details</a><img src="source/images/arrow.png" alt=""></li>
+                        <li><a href="{{route('index')}}">Trang chủ</a><img src="source/images/arrow.png" alt=""></li>
+                        <li><a href="{{route('store')}}">Sản phẩm</a><img src="source/images/arrow.png" alt=""></li>
+                        <li><a href="{{route('detail', $product->id)}}">Chi tiết sản phẩm</a><img src="source/images/arrow.png" alt=""></li>
                     </ul>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                     <h3>{{$product->name}}</h3>
                     <div class="left-value-details">
                         <ul>
-                            <li>Price:</li>
+                            <li>Giá:</li>
                             <li>
                                 <h5>{{number_format($product->unit_price)}}đ</h5>
                             </li>
@@ -42,21 +42,21 @@
                     </div>
                     <div class="right-value-details">
                         <p>
-                            In Stock: {{$product->unit}}
+                            Số lượng: {{$product->unit}}
                         </p>
                         <br />
                     </div>
                     <div class="clear"> </div>
                 </div>
                 <div class="brand-history">
-                    <h3>Description :</h3>
+                    <h3>Mô tả :</h3>
                     <p>
                         {{$product->description}}
                     </p>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     </p>
-                    <a href="{{route('addtoCart', $product->id)}}">Add to cart</a>
+                    <a href="{{route('addtoCart', $product->id)}}">Thêm vào giỏ hàng</a>
                 </div>
                 <div class="share">
                     <ul>
@@ -69,11 +69,14 @@
             </div>
             <div class="clear"> </div>
             <div class="menu_container">
-                <p class="menu_head">Lorem Ipsum<span class="plusminus">+</span></p>
+                <p class="menu_head">Chi tiết sản phẩm<span class="plusminus">+</span></p>
                 <div class="menu_body" style="display: none;">
+                    <p>
+                        {{$product->description}}
+                    </p>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                 </div>
-                <p class="menu_head">About Product<span class="plusminus">+</span></p>
+                <p class="menu_head">Về sản phẩm<span class="plusminus">+</span></p>
                 <div class="menu_body" style="display: none;">
                     <p>theonlytutorials.com is providing a great varitey of tutorials and scripts to use it immediate on any project!</p>
                 </div>

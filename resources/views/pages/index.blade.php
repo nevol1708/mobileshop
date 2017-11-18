@@ -28,7 +28,7 @@
 <div class="wrap">
     <div class="content">
         <div class="content-grids">
-            <h4>All Products</h4>
+            <h4>Sản phẩm mới</h4>
             <div class="section group">
             @foreach($products as $product)   
                 <div class="grid_1_of_4 images_1_of_4 products-info">
@@ -45,7 +45,7 @@
             {!! $products->render() !!}
         </div>
         <div class="content-sidebar">
-            <h4>Brand</h4>
+            <h4>Hãng Sản Xuất</h4>
             <ul>
                 @foreach($brand as $brandname)
                 <li><a href="{{route('brand', $brandname->id)}}">{{$brandname->name}}</a></li>

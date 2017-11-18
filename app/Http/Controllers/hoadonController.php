@@ -13,7 +13,7 @@ class hoadonController extends Controller
     //
     public function getDanhSach()
     {
-    	$hoadon = Bill::with('customer')->get();
+    	$hoadon = Bill::with('customer')->orderBy('complete', 'ASC')->get();
     	return view('admin.hoadon.danhsach', compact('hoadon'));
     }
 

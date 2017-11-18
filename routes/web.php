@@ -40,6 +40,16 @@ Route::get('price/{min}-to-{max}',[
 	'uses'=>'PageController@getPricefind'
 ]);
 
+Route::get('price/asc', [
+	'as'=>'priceasc',
+	'uses'=>'PageController@getPriceASC'
+]);
+
+Route::get('price/desc', [
+	'as'=>'pricedesc',
+	'uses'=>'PageController@getPriceDESC'
+]);
+
 // login
 Route::get('login',[
 	'as'=>'login',

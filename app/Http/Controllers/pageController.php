@@ -45,6 +45,18 @@ class PageController extends Controller
         return view('pages.price', compact('products', 'brand'));
     }
 
+    public function getPriceDESC() {
+        $products = Product::orderBy('unit_price', 'DESC')->paginate(12);
+        $brand = ProductCategory::all();
+        return view('pages.price', compact('products', 'brand'));
+    }
+
+    public function getPriceASC() {
+        $products = Product::orderBy('unit_price', 'ASC')->paginate(12);
+        $brand = ProductCategory::all();
+        return view('pages.price', compact('products', 'brand'));
+    }
+
     public function getAddtoCart(Request $req,$id){
         $product = Product::find($id);
         $oldCart = Session('cart')?Session::get('cart'):null;

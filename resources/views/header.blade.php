@@ -9,15 +9,15 @@
     <div class="header-top-nav">
         <ul>
             @if(Auth::check())
-            <li><a href="#">Xin chào, {{Auth::user()->name}}</a></li>
+            <li><a href="#"><span>Xin chào, </span>{{Auth::user()->name}}</a></li>
             <li><a href="admin/logout">Đăng xuất</a></li>
             @else
-            <li><a href="{{route('register')}}">Register</a></li>
-            <li><a href="{{route('login')}}">Login</a></li>
+            <li><a href="{{route('register')}}">Đăng ký</a></li>
+            <li><a href="{{route('login')}}">Đăng nhập</a></li>
             @endif
-            <li><a href="{{route('getCart')}}"><span>shopping cart&nbsp;&nbsp;: </span></a>
+            <li><a href="{{route('getCart')}}"><span>Giỏ hàng&nbsp;&nbsp;: </span></a>
                 @if(Session::has('cart'))
-                <label>{{Session('cart')->totalQty}}@else&nbsp;noitems</label>
+                <label>{{Session('cart')->totalQty}}@else&nbsp;0</label>
                 @endif
             </li>
         </ul>
@@ -36,10 +36,10 @@
         <!----start-top-nav---->
         <div class="top-nav">
             <ul>
-                <li><a href="{{route('index')}}">Home</a></li>
-                <li><a href="{{route('about')}}">About</a></li>
-                <li><a href="{{route('store')}}">Store</a></li>
-                <li><a href="{{route('contact')}}">Contact</a></li>
+                <li><a href="{{route('index')}}">Trang chủ</a></li>
+                <li><a href="{{route('about')}}">Về chúng tôi</a></li>
+                <li><a href="{{route('store')}}">Sản phẩm</a></li>
+                <li><a href="{{route('contact')}}">Liên hệ</a></li>
             </ul>
         </div>
         <div class="clear"> </div>

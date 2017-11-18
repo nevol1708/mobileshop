@@ -10,7 +10,6 @@
                     <small>{{$sanpham->name}}</small>
                 </h1>
             </div>
-            <!-- /.col-lg-12 -->
             <div class="col-lg-7" style="padding-bottom:120px">
 
                 @if(count($errors) > 0)
@@ -49,11 +48,11 @@
 
                     <div class="form-group">
                         <label>Mô tả</label>
-                        <textarea class="form-control" rows="3" name="description"></textarea>
+                        <textarea class="form-control" rows="3" name="description">{{$sanpham->description}}</textarea>
                     </div>
                     <div class="form-group">
                         <label>Giá tiền</label>
-                        <textarea class="form-control" rows="1" name="unit_price"></textarea>
+                        <input class="form-control" rows="1" name="unit_price" value="{{$sanpham->unit_price}}"></input>
                     </div>
                     <div class="form-group">
                         <label>Hình ảnh</label>
@@ -61,7 +60,7 @@
                     </div>
                     <div class="form-group">
                         <label>Số hàng tồn kho</label>
-                        <textarea class="form-control" rows="1" name="unit"></textarea>
+                        <input class="form-control" rows="1" name="unit" value="{{$sanpham->unit}}"></input>
                     </div>
                   
                     <button type="submit" class="btn btn-success">SỬA</button>

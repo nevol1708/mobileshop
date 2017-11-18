@@ -38,7 +38,7 @@
                     </tr>
                 </table>
             @endforeach
-            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+            <table class="table table-striped table-bordered table-hover">
                 <thead>
                     <tr align="center">
                         <th>ID</th>

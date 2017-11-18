@@ -95,13 +95,13 @@ class sanphamController extends Controller
         if(Input::hasFile('fImages')) {
             $file = Input::file('fImages');
             $file->move('source/images/product', $file->getClientOriginalName());
+            $sanpham->image = $file->getClientOriginalName();
             
         }
         $sanpham->name = $request->name;
         $sanpham->cate_id = $request->id_type;
         $sanpham->description = $request->description;
         $sanpham->unit_price = $request->unit_price;
-        $sanpham->image = $file->getClientOriginalName();
         $sanpham->unit = $request->unit;
         
         $sanpham->save();
