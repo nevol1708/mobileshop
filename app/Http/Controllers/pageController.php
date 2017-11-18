@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     public function getIndex() {
-        $products = Product::paginate(12);
+        $products = Product::orderBy('updated_at', 'DESC')->paginate(4);
         $brand = ProductCategory::all();
         return view('pages.index', compact('products', 'brand'));
     }

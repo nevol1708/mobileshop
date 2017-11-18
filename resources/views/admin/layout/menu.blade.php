@@ -13,7 +13,7 @@
                 <!-- /input-group -->
             </li>
             <li>
-                <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                <a href="/"><i class="fa fa-dashboard fa-fw"></i> Trang chủ</a>
             </li>
 
             <!--<li>

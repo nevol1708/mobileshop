@@ -29,8 +29,9 @@ class hoadonController extends Controller
 
     public function getChiTiet($id)
     {
-        $hoadonchitiet = BillDetail::where('id_bill','=', $id)->with('product')->get();
-        return view('admin/hoadon/chitiet', compact('hoadonchitiet'));
+        $hoadonchitiet = BillDetail::where('id_bill', '=', $id)->with('product')->get();
+        $kh = Bill::with('customer')->where('id', '=', $id)->get();
+        return view('admin.hoadon.chitiet', compact('hoadonchitiet', 'kh'));
     }
 
 

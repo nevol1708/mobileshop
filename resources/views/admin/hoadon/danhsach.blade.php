@@ -20,7 +20,7 @@
             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                 <thead>
                     <tr align="center">
-                        <th>Đã xử lý</th>
+                        <th>Xử lý</th>
                         <th>ID</th>
                         <th>Tên khách hàng</th>
                         <th>Ngày đặt hàng</th>

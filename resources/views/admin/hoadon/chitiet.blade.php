@@ -16,7 +16,28 @@
                     {{session('thongbao')}}
                 </div>
             @endif
-            
+
+            @foreach($kh as $cus)
+                @if($cus->complete == "")
+                    <td><a href="admin/hoadon/xuly/{{$cus->id}}">Đánh dấu đã xử lý</a></td>
+                @else
+                    <td><a href="admin/hoadon/chuaxuly/{{$cus->id}}">Đánh dấu chưa xử lý</a></td>
+                @endif
+                <table class="table table-bordered" align="center">
+                    <tr>
+                        <th>Tên khách hàng</th>
+                        <th>Số điện thoại</th>
+                        <th>Địa chỉ</th>
+                        <th>Email</th>
+                    </tr>
+                    <tr>
+                        <td>{{$cus->customer->name}}</td>
+                        <td>{{$cus->customer->phone_number}}</td>
+                        <td>{{$cus->customer->address}}</td>
+                        <td>{{$cus->customer->email}}</td>
+                    </tr>
+                </table>
+            @endforeach
             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                 <thead>
                     <tr align="center">
