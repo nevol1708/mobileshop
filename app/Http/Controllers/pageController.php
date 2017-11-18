@@ -96,7 +96,8 @@ class PageController extends Controller
     }
     public function getSearch(Request $req) {
         $product = Product::where('name', 'like', '%'.$req->key.'%')->get();
-        return view('pages.search', compact('product'));
+        $key = $req->key;
+        return view('pages.search', compact('product', 'key'));
     }
 
     public function postCheckout(Request $req){
