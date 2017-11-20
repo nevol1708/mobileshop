@@ -120,8 +120,6 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `name`, `gender`, `email`, `address`, `phone_number`, `note`, `created_at`, `updated_at`) VALUES
-(4, 'Phạm Tiến Thành', 'nam', 'nevol.love@gmail.com', 'Hà Nội', '01683135028', 'Giao hàng nhanh', '2017-11-12 19:40:47', '2017-11-12 19:40:47'),
-(5, 'Chu Văn Quang', 'nam', 'quangchu@gmail.com', 'Vĩnh Phúc', '01685275028', NULL, '2017-11-13 11:50:56', '2017-11-13 11:50:56'),
 (6, 'Linh', 'nữ', 'linh@gmail.com', 'Ngọc Khánh, Hà Nội', '01685275068', NULL, '2017-11-13 19:05:27', '2017-11-13 19:05:27');
 
 -- --------------------------------------------------------
