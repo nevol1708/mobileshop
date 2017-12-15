@@ -21,6 +21,7 @@
                 </div>
             @endforeach
             </div>
+            {!! $products->render() !!}
         </div>
     </div>
     <div class="content-sidebar">

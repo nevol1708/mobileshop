@@ -42,7 +42,6 @@
                 </div>
             @endforeach
             </div>
-            {!! $products->render() !!}
         </div>
         <div class="content-sidebar">
             <h4>Thương hiệu</h4>

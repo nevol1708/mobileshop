@@ -18,7 +18,7 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     public function getIndex() {
-        $products = Product::orderBy('updated_at', 'DESC')->paginate(4);
+        $products = Product::orderBy('updated_at', 'DESC')->limit(4)->get();
         $brand = ProductCategory::all();
         return view('pages.index', compact('products', 'brand'));
     }
@@ -29,31 +29,31 @@ class PageController extends Controller
     }
 
     public function getStore() {
-        $products = Product::paginate(12);
+        $products = Product::paginate(8);
         $brand = ProductCategory::all();
         return view('pages.store', compact('products', 'brand'));
     }
 
     public function getBrandfind($id) {
         $brand = ProductCategory::all();
-        $products = Product::where('cate_id', '=', $id)->paginate(12);
+        $products = Product::where('cate_id', '=', $id)->paginate(8);
         return view('pages.store', compact('products', 'brand'));
     }
 
     public function getPricefind($min_price, $max_price) {
         $brand = ProductCategory::all();
-        $products = Product::whereBetween('unit_price', [$min_price, $max_price])->get();
+        $products = Product::whereBetween('unit_price', [$min_price, $max_price])->paginate(8);
         return view('pages.price', compact('products', 'brand'));
     }
 
     public function getPriceDESC() {
-        $products = Product::orderBy('unit_price', 'DESC')->paginate(12);
+        $products = Product::orderBy('unit_price', 'DESC')->paginate(8);
         $brand = ProductCategory::all();
         return view('pages.price', compact('products', 'brand'));
     }
 
     public function getPriceASC() {
-        $products = Product::orderBy('unit_price', 'ASC')->paginate(12);
+        $products = Product::orderBy('unit_price', 'ASC')->paginate(8);
         $brand = ProductCategory::all();
         return view('pages.price', compact('products', 'brand'));
     }

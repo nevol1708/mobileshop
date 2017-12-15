@@ -57,7 +57,7 @@
 	<tr>
 		<td class="tdcmp1">XÓA</td>
 		@foreach($product_compare as $com)
-		<td><a class="tdcmp" href="{{route('delfromCompare',$com['item']['id'])}}">Xóa</a></td>
+		<td><a class="tdcmp btn btn-danger" href="{{route('delfromCompare',$com['item']['id'])}}">Xóa</a></td>
 		@endforeach
 	</tr>		
 </table>
